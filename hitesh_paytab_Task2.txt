@@ -1,0 +1,149 @@
+Task 2
+
+Example 1 : Fetch the list of available employee’s details.
+
+request GET' https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList'
+
+{
+
+Response 200 OK
+"status": "success", "data":[
+
+{
+
+"id":"0066",
+
+"First Name":"David", "Last Name":"Morris",
+"Job Title":"Account Assistant",
+
+"Employment Status":"Full-Time Permanent", "Sub Unit":"Finance",
+"Supervisor":"Kevin Mathews",
+
+},
+
+{ "id":"0020",
+"First Name":"Domnic", "Last Name":"Chase",
+"Job Title":"VP - Client Services", "Employment Status":"Full-Time Permanent", "Sub Unit":"Administration", "Supervisor":"John Smith",
+},
+
+{ "id":"0227",
+"First Name":"Ehioze", "Last Name":"Ebo",
+"Job Title":"Account Assistant",
+
+"Employment Status":"Full-Time Permanent", "Sub Unit":"Finance",
+"Supervisor":"Kevin Mathews",
+},
+
+{ "id":"0029",
+"First Name":"Fiona", "Last Name":"Grace",
+"Job Title":"Software Architect", "Employment Status":"Full-Time Permanent", "Sub Unit":"Development", "Supervisor":"Odis Adalwin",
+},
+
+{ "id":"0038",
+"First Name":"Aaliyah", "Last Name":"Haq", "Job Title":"QA Lead",
+"Employment Status":"Full-Time Permanent", "Sub Unit":"Quality Assurance", "Supervisor":"Odis Adalwin",
+},
+
+{ "id":"0021",
+"First Name":"Alice", "Last Name":"Duval",
+"Job Title":"Account Assistant", "Employment Status":"Full-Time Contract", "Sub Unit":"Finance",
+"Supervisor":"Kevin Mathews",
+},
+
+{ "id":"0070",
+"First Name":"Anthony", "Last Name":"Nolan",
+"Job Title":"Sales Representative", "Employment Status":"Full-Time Probation", "Sub Unit":"Sales",
+"Supervisor":"Linda Anderson",
+
+},
+
+{ "id":"0046",
+"First Name":"Cassidy", "Last Name":"Hope", "Job Title":"IT Manager",
+"Employment Status":"Part-Time Contract", "Sub Unit":"TechOps",
+"Supervisor":"Odis Adalwin",
+
+},
+
+{ "id":"0024",
+"First Name":"Cecil", "Last Name":"Bonapate",
+"Job Title":"Software Engineer", "Employment Status":"Full-Time Permanent", "Sub Unit":"Development", "Supervisor":"Fiona Grace",
+},
+
+]
+
+Example 2 : Search the employee using the Id but that employee detail is not available, validate the response.
+
+request GET'https://opensource- demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/25'
+
+{
+
+Response 404
+"status": "success",
+
+{
+
+"data": { "id":"0099",
+"First Name": "Garry", "Last Name": "White", "Job Title: "HR Associate",
+"Employment Status":"Full-Time Permanent" "Sub Unit":"Human Resources", "Supervisor":"Paul Collings"
+},
+
+"support": {
+
+"url": "https://reqres.in/#support-heading"
+
+}
+
+}
+
+Eample 3 : Create a one employee details and check whether it employee is created
+
+request POST'https://opensource- demo.orangehrmlive.com/web/index.php/admin/saveSystemUser'
+
+{
+
+Response 201
+
+"status": "success", "data":
+"id":"0199",
+
+"First Name": "Sai", "Last Name": "Ganesh", "Job Title: "QA",
+"Employment Status":"Full-Time Permanent" "Sub Unit":"Software Tester", "Supervisor":"Iyyapan"
+}
+
+]
+
+Example 4 : Update the Job value for the created employee using employee Id and check the update happen for the employee.
+
+PUT'https://opensource- demo.orangehrmlive.com/web/index.php/auth/login'/update/{["id"="0243"]}
+
+Request
+
+{
+
+"data":
+
+{"id"="0091","First Name"="Jadine"," Last Name":" Javkie"} Response body
+201 successs
+
+{
+
+"data":
+
+{"id"="0091","First Name"="Jadine","Last Name":"Jackie"}
+
+Example 5 : Delete the employee using employee Id and check the employee details are deleted successfully.
+
+DELETE 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login/delete/0002' 
+Response 200 OK
+
+BodyHeader
+
+{
+
+"status": "success",
+
+"id": "0002",
+
+"message": "Successfully! Record has been deleted"
+
+}
